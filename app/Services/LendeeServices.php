@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use App\Http\Resources\LendeeResource;
 use App\Http\Resources\LendeeCollection;
-use App\Lendee;
 
 
 class LendeeServices
@@ -13,8 +12,9 @@ class LendeeServices
     public function index(array $data)
     {
         try {
+            $lendee = resolve('Lendee')->index($data);
             if (Arr::exists($data, 'page')) {
-                $lendee = Lendee::paginate($data['limit']);
+                $lendee = $lendee->paginate($data['limit']);
             } else {
                 $lendee = Lendee::all();
             }

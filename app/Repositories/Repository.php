@@ -21,7 +21,8 @@ class Repository implements RepositoryInterface
     public function index($data)
     {
         try {
-            return $this->model->all();
+            $item = $this->model;
+            return $item;
         } catch (\Exception $e) {
             throw $e;
         }   
