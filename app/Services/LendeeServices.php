@@ -16,7 +16,7 @@ class LendeeServices
             if (Arr::exists($data, 'page')) {
                 $lendee = $lendee->paginate($data['limit']);
             } else {
-                $lendee = Lendee::all();
+                $lendee = $lendee->all();
             }
             return new LendeeCollection($lendee);
         } catch (\Exception $exception) {
