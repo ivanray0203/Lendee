@@ -52,7 +52,7 @@ class LendeeServices
             DB::beginTransaction();
             $lendee = resolve('Lendee')->update($data, $id);
             DB::commit();
-            return $product;
+            return $lendee;
         } catch (\Exception $exception) {
             DB::rollBack();
             throw $exception;
